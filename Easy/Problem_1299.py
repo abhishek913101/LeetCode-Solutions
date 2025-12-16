@@ -7,3 +7,4 @@ class Solution:
             arr[i] = max_right
             max_right = max(max_right, current)
         return arr
+ 
