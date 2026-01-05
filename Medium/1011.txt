@@ -1,0 +1,21 @@
+def check(cap):
+    curr_weight = 0
+    days_needed = 1
+    for w in weights:
+        if curr_weight + w > cap:
+            days_needed += 1
+            curr_weight = w
+        else:
+            curr_weight += w
+    return days_needed <= days
+
+    left = max(weights)
+    right = sum(weights)
+
+    while left < right:
+        mid = left + (right - left) // 2
+        if check(mid):
+            right = mid
+        else:
+            left = mid + 1
+    return left
