@@ -1,0 +1,11 @@
+if len(num) == k:
+            return "0"
+        stack = []
+        for digit in num:
+            while k > 0 and stack and stack[-1] > digit:
+                stack.pop()
+                k -= 1
+            stack.append(digit)
+        stack = stack[:len(stack)-k]
+        stack = "".join(stack).lstrip("0")
+        return stack if stack else "0"
