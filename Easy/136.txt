@@ -1,0 +1,5 @@
+def singleNumber(self, nums: List[int]) -> int:
+    d1 = Counter(nums)
+    for i,j in d1.items():
+        if j < 2:
+            return i
