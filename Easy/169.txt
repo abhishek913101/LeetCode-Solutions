@@ -1,0 +1,9 @@
+n = len(nums)
+ans = 0
+freq = 0
+d1 = Counter(nums)
+for i,j in d1.items():
+    if freq < j:
+        freq = j
+        ans = i
+return ans
