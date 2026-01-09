@@ -1,0 +1,1 @@
+return nums.index(max(nums))
