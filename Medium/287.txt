@@ -1,4 +1,4 @@
 d1 = Counter(nums)
-    for i,j in d1.items():
-        if j > 1:
-            return i
+for i,j in d1.items():
+    if j > 1:
+        return i
