@@ -1,0 +1,7 @@
+ans = []
+n = len(nums)
+d1 = Counter(nums)
+for i,j in d1.items():
+    if j > n/3:
+        ans.append(i)
+return ans
