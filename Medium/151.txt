@@ -1,0 +1,14 @@
+l1 = s.split(" ")
+l = 0
+r = len(l1)-1
+while l < r:
+    l1[l],l1[r] = l1[r],l1[l]
+    l += 1
+    r -= 1
+
+w = 0
+for r in range(len(l1)):
+    if l1[r] != "":
+        l1[w] = l1[r]
+        w += 1
+return " ".join(l1[:w])
