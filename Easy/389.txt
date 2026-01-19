@@ -1,0 +1,9 @@
+d2 = Counter(t)
+        ans = ""
+        for i in s:
+            if i in d2:
+                d2[i] -= 1
+        for i,j in d2.items():
+            if j > 0:
+                ans += i
+        return ans         
