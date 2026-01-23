@@ -1,0 +1,6 @@
+ans = 0
+for i in sentences:
+    sen = i.split(" ")
+    length = len(sen)
+    ans = max(length,ans)
+return ans
