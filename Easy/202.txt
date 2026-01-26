@@ -1,0 +1,15 @@
+def happyKya(n):
+    if n == 1:
+        return True 
+    sum = 0
+    while n != 0:
+        rem = n%10
+        sum += rem**2
+        n //= 10
+    return sum
+slow = happyKya(n)
+fast = happyKya(happyKya(n))
+while slow != fast:
+    slow = happyKya(slow)
+    fast = happyKya(happyKya(fast))
+return slow == 1
