@@ -12,3 +12,4 @@ for i in range(n):
     if isPrime[i]:
         count += 1
 return count
+# This is Code 
