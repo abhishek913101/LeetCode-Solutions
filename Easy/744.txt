@@ -1,0 +1,10 @@
+ans = []
+for ch in letters:
+    if ord(ch) > ord(target):
+        ans.append(ch)
+print(ans)
+min = "z"
+for ch in ans:
+    if ord(ch) < ord(min):
+        min = ch
+return min if ans else letters[0]
