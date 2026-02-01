@@ -1,0 +1,5 @@
+nums = list(sorted(set(nums)))
+if len(nums) >= 3:
+    return nums[-3]
+else:
+    return nums[-1]
