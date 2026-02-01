@@ -1,0 +1,2 @@
+sub_elements = sorted(nums[1:])
+return nums[0] + sub_elements[0] + sub_elements[1]
