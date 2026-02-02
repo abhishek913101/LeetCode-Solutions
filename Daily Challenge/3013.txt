@@ -1,0 +1,37 @@
+window_size = dist + 1
+current_window = SortedList(nums[1:1 + window_size])
+
+selected = SortedList(current_window[:k-1])
+candidates = SortedList(current_window[k-1:])
+
+current_sum = sum(selected)
+min_sum = current_sum
+
+for i in range(1 + window_size, len(nums)):
+    out_node = nums[i - dist - 1]
+    if out_node in selected:
+        current_sum -= out_node
+        selected.remove(out_node)
+    else:
+        candidates.remove(out_node)
+    
+    in_node = nums[i]
+    if in_node < (selected[-1] if selected else float('inf')):
+        selected.add(in_node)
+        current_sum += in_node
+    else:
+        candidates.add(in_node)
+        
+    while len(selected) < k - 1:
+        min_cand = candidates.pop(0)
+        selected.add(min_cand)
+        current_sum += min_cand
+        
+    while len(selected) > k - 1:
+        max_sel = selected.pop(-1)
+        candidates.add(max_sel)
+        current_sum -= max_sel
+        
+    min_sum = min(min_sum, current_sum)
+    
+return nums[0] + min_sum
