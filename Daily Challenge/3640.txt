@@ -1,0 +1,33 @@
+n = len(nums)
+if n < 4:  
+    return 0 
+
+res = float('-inf')
+left = 0
+p = -1
+q = -1
+current_sum = nums[0]
+
+for right in range(1, n):
+    current_sum += nums[right]
+    
+    if nums[right] < nums[right - 1]:
+        if right >= 2 and nums[right - 2] < nums[right - 1]:
+            p = right - 1
+            while left < q or (nums[left] < 0 and left + 1 < p):
+                current_sum -= nums[left]
+                left += 1
+                
+    elif nums[right] > nums[right - 1]:
+        if right >= 2 and nums[right - 2] > nums[right - 1]:
+            q = right - 1
+        
+        if p != -1 and q != -1 and p < q:
+            res = max(res, current_sum)
+    
+    else:
+        left = right
+        p = q = -1
+        current_sum = nums[right]
+
+return int(res)
