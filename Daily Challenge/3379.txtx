@@ -1,0 +1,13 @@
+n = len(nums)
+result = [0]*n
+for i in range(n):
+    if nums[i] < 0:
+        step = abs(nums[i])
+        step = step%n
+        result[i] = nums[i-step]
+    else:
+        step = nums[i]
+        step = (i+step)%n
+        result[i] = nums[step]
+print(nums)
+return result
