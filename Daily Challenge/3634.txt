@@ -1,0 +1,12 @@
+nums.sort()
+n = len(nums)
+max_kept = 0
+
+for i in range(n):
+    max_val = nums[i] * k
+    
+    j = bisect_right(nums, max_val) - 1
+    
+    max_kept = max(max_kept, j - i + 1)
+    
+return n - max_kept
