@@ -9,4 +9,4 @@ for i in range(n):
     
     max_kept = max(max_kept, j - i + 1)
     
-return n - max_kept
+return n - max_kept 
