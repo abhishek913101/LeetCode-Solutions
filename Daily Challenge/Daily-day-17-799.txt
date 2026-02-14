@@ -1,0 +1,15 @@
+class Solution:
+    def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
+        glasses = [[0.0] * (i + 1) for i in range(101)]
+        
+        glasses[0][0] = float(poured)
+        
+        for i in range(query_row):
+            for j in range(len(glasses[i])):
+                if glasses[i][j] > 1.0:
+                    flow_over = glasses[i][j] - 1.0
+                    glasses[i][j] = 1.0 
+                    glasses[i+1][j] += flow_over / 2.0
+                    glasses[i+1][j+1] += flow_over / 2.0
+
+        return min(1.0, glasses[query_row][query_glass])
