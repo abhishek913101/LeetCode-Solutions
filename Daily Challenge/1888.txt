@@ -1,0 +1,22 @@
+class Solution:
+    def minFlips(self, s: str) -> int:
+        n = len(s)
+        target_pattern = "01" 
+        flips1 = sum(c != target_pattern[i % 2] for i, c in enumerate(s))
+        flips2 = n - flips1
+        ans = min(flips1, flips2)
+        
+        for i in range(n):
+            if s[i] != target_pattern[i % 2]:
+                flips1 -= 1
+            else:
+                flips2 -= 1
+                
+            if s[i] != target_pattern[(n + i) % 2]:
+                flips1 += 1
+            else:
+                flips2 += 1
+                
+            ans = min(ans, flips1, flips2)
+            
+        return ans
