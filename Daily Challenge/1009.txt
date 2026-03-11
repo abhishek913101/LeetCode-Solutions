@@ -1,0 +1,17 @@
+class Solution:
+    def bitwiseComplement(self, n: int) -> int:
+        s = str(bin(n))
+        l = list(s[2:])
+        for i in range(len(l)):
+            if l[i] == "0":
+                l[i] = "1"
+            else:
+                l[i] = "0"
+        ans = ""
+        for i in l:
+            ans += i
+        
+        print(ans.lstrip("0"))
+        return int(ans,2)
+
+
