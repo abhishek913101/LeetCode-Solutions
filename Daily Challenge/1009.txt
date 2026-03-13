@@ -14,4 +14,4 @@ class Solution:
         print(ans.lstrip("0"))
         return int(ans,2)
 
-
+ 

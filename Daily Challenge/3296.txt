@@ -1,0 +1,23 @@
+class Solution:
+    def minNumberOfSeconds(self, mountainHeight: int, workerTimes: List[int]) -> int:
+        def is_possible(t):
+            total_reduced_height = 0
+            for wt in workerTimes:
+                h = int((math.sqrt(8 * t / wt + 1) - 1) / 2)
+                total_reduced_height += h
+            return total_reduced_height >= mountainHeight
+
+        n = len(workerTimes)
+        r = math.ceil(mountainHeight / n)
+        upper_bound = max(workerTimes) * r * (r + 1) // 2
+        
+        left, right = 0, upper_bound
+
+        while left < right:
+            mid = (left + right) // 2
+            if is_possible(mid):
+                right = mid
+            else:
+                left = mid + 1
+                
+        return right
