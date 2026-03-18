@@ -1,0 +1,19 @@
+class Solution:
+    def countSubmatrices(self, grid: List[List[int]], k: int) -> int:
+        m = len(grid)
+        n = len(grid[0])
+        ans = 0
+        prefix_sum = [[0] * (n + 1) for _ in range(m + 1)] 
+
+        for i in range(m):
+            for j in range(n):
+                prefix_sum[i + 1][j + 1] = (
+                    grid[i][j]
+                    + prefix_sum[i][j + 1]
+                    + prefix_sum[i + 1][j]
+                    - prefix_sum[i][j]
+                ) 
+                if prefix_sum[i + 1][j + 1] <= k:
+                    ans += 1 
+
+        return ans #

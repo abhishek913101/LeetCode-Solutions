@@ -1,5 +1,4 @@
 class Fancy:
-
     def __init__(self):
         self.MOD = 10**9 + 7
         self.vals = []
